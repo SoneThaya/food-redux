@@ -8,6 +8,7 @@ import { itemToEdit } from "../action/updateItem"
 import getItem from "../action/getItem"
 import MenuCard from "./MenuCard"
 import { Styles } from "./Styles"
+import CardMedia from '@material-ui/core/CardMedia';
 
 
 const initialState = {
@@ -28,7 +29,7 @@ function MenuList(props) {
 
 	useEffect(() => {
 		console.log("ID Here", props.id)
-		props.getItems(props.id)
+		props.getItem(props.id)
 	}, [])
 
 	useEffect(() => {
@@ -57,21 +58,7 @@ function MenuList(props) {
 	return (
 		<Styles>
 			<div>
-				<div className="tabs-container">
-					<Link
-						className="tab active"
-						onClick={props.getItems}
-						to="/all-recipes"
-					>
-						Home
-					</Link>
-					<Link className="tab" to="/user-recipes">
-						My Recipes
-					</Link>
-					<Link className="tab" to="/add-recipe">
-						Add Recipe
-					</Link>
-				</div>
+				
 				<input
 					className="search-input"
 					type="text"
@@ -83,7 +70,14 @@ function MenuList(props) {
 					{itemData.map((item) => {
 						console.log("Recipe here", item.id)
 						return (
-							<div key={item.id} className="recipe-card">
+              <div key={item.id} className="recipe-card">
+              <CardMedia
+              component="img"
+              alt={item.title}
+              height="140"
+              image={item.itemImage}
+              title={item.title}
+            />
 								<h2 className="recipe-title">{item.title}</h2>
 								<h4 className="recipe-author">
 									{item.description}
