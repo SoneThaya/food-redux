@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from "react-router-dom"
 import InputLabel from "@material-ui/core/InputLabel"
 import TextField from "@material-ui/core/TextField"
+import Button from "@material-ui/core/Button"
 
 import { Styles } from './Styles';
 
@@ -85,7 +86,7 @@ const AddItem = (props) => {
               label="category"
               id="category"
               name="category"
-              value={recipeToAdd.category}
+              value={itemToAdd.category}
               onChange={onChange}
             />
 						

@@ -8,6 +8,7 @@ import AddItem from './components/AddItem';
 import Navbar from './components/Navbar';
 import MenuList from './components/MenuList'
 import Login from './components/Login'
+import SignUp from './components/SignUp'
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
           <Route path='/menu' exact component={MenuList} />
           <Route path='/add-item' exact component={AddItem} />
           <Route path='/login' exact component={Login} />
-          <Route path='/register' exact component={Register} />
+          <Route path='/register' exact component={SignUp} />
         </Switch>
 
       </Router>

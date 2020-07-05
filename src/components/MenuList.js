@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button"
 import updateItem from "../action/updateItem"
 import deleteItem from "../action/deleteItem"
 import { itemToEdit } from "../action/updateItem"
-import getItems from "../action/getItems"
+import getItem from "../action/getItem"
 import MenuCard from "./MenuCard"
 import { Styles } from "./Styles"
 
@@ -96,7 +96,7 @@ function MenuList(props) {
 								<div className="recipe-card-buttons">
 									<Link
 										style={{ textDecoration: "none" }}
-										to={`/recipes/${recipe.id}`}
+										to={`/menu/${item.id}`}
 									>
 										<Button
 											variant="contained"
@@ -139,7 +139,7 @@ const mapStateToProps = ({ getItemsReducer }) => {
 }
 
 export default connect(mapStateToProps, {
-	getItems,
+	getItem,
 	deleteItem,
 	updateItem,
 	itemToEdit,
