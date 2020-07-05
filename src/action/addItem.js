@@ -4,9 +4,9 @@ import {
   ADD_ITEM_FAILURE
 } from './index'
 
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
-export const addItem = (item) => (dispatch) => {
+const addItem = (item) => (dispatch) => {
   dispatch({ type: ADD_ITEM_START })
   axiosWithAuth()
     .post(`/menu`, item)
@@ -19,3 +19,5 @@ export const addItem = (item) => (dispatch) => {
       dispatch({type: ADD_ITEM_FAILURE})
     })
 }
+
+export default addItem

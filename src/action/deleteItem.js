@@ -20,3 +20,5 @@ const deleteItem = (id, history) => (dispatch) => {
       dispatch({ type: DELETE_ITEM_FAILURE, payload: err })
     })
 }
+
+export default deleteItem
