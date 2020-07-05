@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import AddItem from './components/AddItem';
 import Navbar from './components/Navbar';
 import MenuList from './components/MenuList'
+import Login from './components/Login'
 
 
 function App() {
