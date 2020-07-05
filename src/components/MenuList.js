@@ -8,7 +8,24 @@ import { itemToEdit } from "../action/updateItem"
 import getItem from "../action/getItem"
 import MenuCard from "./MenuCard"
 import { Styles } from "./Styles"
+
+
+import Grid from '@material-ui/core/Grid'
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 545,
+    margin: '25px',
+  },
+});
+
 
 
 const initialState = {
@@ -25,10 +42,11 @@ function MenuList(props) {
 	const [itemsList, setItemsList] = useState(initialState)
 	const [searchTerm, setSearchTerm] = useState("")
 	const history = useHistory()
-	const dispatch = useDispatch()
+  const dispatch = useDispatch()
+  
+  const classes = useStyles();
 
 	useEffect(() => {
-		console.log("ID Here", props.id)
 		props.getItem(props.id)
 	}, [])
 
@@ -68,56 +86,68 @@ function MenuList(props) {
 				></input>
 				<div className="recipes-body">
 					{itemData.map((item) => {
-						console.log("Recipe here", item.id)
+						
 						return (
               <div key={item.id} className="recipe-card">
-              <CardMedia
-              component="img"
-              alt={item.title}
-              height="140"
-              image={item.itemImage}
-              title={item.title}
-            />
-								<h2 className="recipe-title">{item.title}</h2>
-								<h4 className="recipe-author">
-									{item.description}
-								</h4>
-								<p>
-									
-									{item.category}
-								</p>
-								<br />
-								<div className="recipe-card-buttons">
-									<Link
-										style={{ textDecoration: "none" }}
-										to={`/menu/${item.id}`}
-									>
-										<Button
-											variant="contained"
-											color="secondary"
-											onClick={() => {
-												dispatch(
-													itemToEdit(
-														item.id,
-														history
-													)
-												)
-											}}
-										>
-											Update
-										</Button>
-									</Link>
-									<Button
-										variant="contained"
-										color="secondary"
-										onClick={(e) => {
-											deleteItem(item.id)
-										}}
-									>
-										Delete
-									</Button>
-								</div>
-							</div>
+              <Grid item sx={12} sm={6} md={4} key={item.id}>
+              <Card className={classes.root}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  alt={item.title}
+                  height="140"
+                  image={item.itemImage}
+                  title={item.title}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {item.title}
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                    {item.description}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              <CardActions>
+                <Typography gutterBottom variant="h6" component="h6">
+                  Price: {item.price}
+                </Typography>
+                    </CardActions>
+                    
+                    <div className="recipe-card-buttons">
+                    <Link
+                      style={{ textDecoration: "none" }}
+                      to={`/menu/${item.id}`}
+                    >
+                      <Button
+                        variant="contained"
+                        color="secondary"
+                        onClick={() => {
+                          dispatch(
+                            itemToEdit(
+                              item.id,
+                              history
+                            )
+                          )
+                        }}
+                      >
+                        Update
+                      </Button>
+                    </Link>
+                    <Button
+                      variant="contained"
+                      color="secondary"
+                      onClick={(e) => {
+                        deleteItem(item.id)
+                      }}
+                    >
+                      Delete
+                    </Button>
+                  </div>
+            </Card>
+        </Grid>
+             
+				    </div>
 						)
 					})}
 				</div>

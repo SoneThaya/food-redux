@@ -13,7 +13,7 @@ const getItem = () => (dispatch) => {
   return axios
     .get(`https://grub-grub-backend.herokuapp.com/api/menu`)
     .then(res => {
-      console.log('getting data', res.data)
+     
       dispatch({ type: FETCH_ITEMS_SUCCESS, payload: res.data })
     })
     .catch(err => {
