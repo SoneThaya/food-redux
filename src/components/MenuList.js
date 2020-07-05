@@ -6,8 +6,9 @@ import updateItem from "../action/updateItem"
 import deleteItem from "../action/deleteItem"
 import { itemToEdit } from "../action/updateItem"
 import getItems from "../action/getItems"
-// import CardBootStrap from "./RecipeCard"
+import MenuCard from "./MenuCard"
 import { Styles } from "./Styles"
+
 
 const initialState = {
 	title: "",
@@ -79,19 +80,17 @@ function MenuList(props) {
 					onChange={handleSearch}
 				></input>
 				<div className="recipes-body">
-					{recipeData.map((recipe) => {
-						console.log("Recipe here", recipe.id)
+					{itemData.map((item) => {
+						console.log("Recipe here", item.id)
 						return (
-							<div key={recipe.id} className="recipe-card">
-								<h2 className="recipe-title">{recipe.title}</h2>
+							<div key={item.id} className="recipe-card">
+								<h2 className="recipe-title">{item.title}</h2>
 								<h4 className="recipe-author">
-									By {recipe.creator}
+									{item.description}
 								</h4>
 								<p>
-									<span className="ingredients">
-										Ingredients:{" "}
-									</span>
-									{recipe.ingredients}
+									
+									{item.category}
 								</p>
 								<br />
 								<div className="recipe-card-buttons">
@@ -104,8 +103,8 @@ function MenuList(props) {
 											color="secondary"
 											onClick={() => {
 												dispatch(
-													recipeToEdit(
-														recipe.id,
+													itemToEdit(
+														item.id,
 														history
 													)
 												)
@@ -118,7 +117,7 @@ function MenuList(props) {
 										variant="contained"
 										color="secondary"
 										onClick={(e) => {
-											deleteRecipe(recipe.id)
+											deleteItem(item.id)
 										}}
 									>
 										Delete
