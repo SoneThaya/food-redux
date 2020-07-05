@@ -20,7 +20,7 @@ const initialState = {
   error: '',
 }
 
-export const deleteItemsReducer = (
+export const deleteItemReducer = (
   state = initialState,
   {type, payload}
 ) => {
