@@ -4,7 +4,7 @@ import {
   DELETE_ITEM_FAILURE,
 } from './index';
 
-import { axiosWithAuth } from '../utils/axiosWithAuth';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 const deleteItem = (id, history) => (dispatch) => {
   axiosWithAuth()

@@ -13,7 +13,7 @@ export const itemToEdit = (item, history) => (dispatch) => {
   history.push(`/update-form/${item}`)
 }
 
-const updateItem = (item, id, history) => {
+const updateItem = (item, id, history) => (dispatch) => {
   axiosWithAuth()
     .put(`/menu/${id}`, item)
     .then(res => {
