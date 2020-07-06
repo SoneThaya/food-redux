@@ -39,20 +39,7 @@ const AddItem = (props) => {
   return (
     <Styles>
 			<div>
-				<div className="tabs-container">
-					<Link
-						className="tab"
-						href="https://bw1-marketing-page.now.sh/"
-					>
-						Home
-					</Link>
-					<Link className="tab" to="/user-recipes">
-						My Recipes
-					</Link>
-					<Link className="tab active" to="/add-recipe">
-						Add Recipe
-					</Link>
-				</div>
+				
 				<div className="entry-container">
 					<h2>Add an Item</h2>
           <form onSubmit={handleSubmit}>

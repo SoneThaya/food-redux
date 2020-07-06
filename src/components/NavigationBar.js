@@ -16,6 +16,7 @@ const NavigationBar = () => {
             <Nav.Link href="/breakfast">Breakfast</Nav.Link>
             <Nav.Link href="/lunch">Lunch</Nav.Link>
             <Nav.Link href="/dinner">Dinner</Nav.Link>
+            <Nav.Link href="/add-item">Add Item</Nav.Link>
               <div className="nav-container">
                 <Nav.Link href="/login">Login</Nav.Link>
                 <Nav.Link href="/signup">Sign Up</Nav.Link>
