@@ -5,7 +5,7 @@ import './App.css';
 
 import Home from "./components/Home";
 import AddItem from './components/AddItem';
-import Navbar from './components/Navbar';
+import NavigationBar from './components/NavigationBar';
 import MenuList from './components/MenuList'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Router>
         
-        <Navbar />
+        <NavigationBar />
 
         <Switch>
           <Route path='/' exact component={Home} />
