@@ -7,8 +7,6 @@ import deleteItem from "../action/deleteItem"
 import { itemToEdit } from "../action/updateItem"
 import getItem from "../action/getItem"
 import MenuCard from "./MenuCard"
-import { Styles } from "./Styles"
-
 
 import Grid from '@material-ui/core/Grid'
 import Card from '@material-ui/core/Card';
@@ -54,7 +52,6 @@ function MenuList(props) {
 		const result = props.itemsList.filter((item) =>
 			item.title.toLowerCase().includes(searchTerm.toLowerCase())
 		)
-		console.log("Filtered recipes: ", result)
 		setItemsList(result)
 	}, [searchTerm])
 
@@ -74,7 +71,7 @@ function MenuList(props) {
 	}
 
 	return (
-		<Styles>
+	
 			<div>
 				
 				<input
@@ -83,12 +80,12 @@ function MenuList(props) {
 					placeholder="Search recipes here"
 					value={searchTerm}
 					onChange={handleSearch}
-				></input>
-				<div className="recipes-body">
-					{itemData.map((item) => {
-						
-						return (
-              <div key={item.id} className="recipe-card">
+        ></input>
+        <Grid container spacing={3}>
+          
+			
+					{itemData.map((item) => (
+              
               <Grid item sx={12} sm={6} md={4} key={item.id}>
               <Card className={classes.root}>
               <CardActionArea>
@@ -147,12 +144,11 @@ function MenuList(props) {
             </Card>
         </Grid>
              
-				    </div>
-						)
-					})}
-				</div>
-			</div>
-		</Styles>
+				
+						))}
+
+        </Grid>
+		</div>
 	)
 }
 

@@ -136,3 +136,9 @@ nav a:hover::before {
     width: 100%;
 }
 
+input {
+		font-size: 1.2em;
+    width: 80%;
+    margin: 10px;
+}
+
