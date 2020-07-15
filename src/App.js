@@ -9,6 +9,7 @@ import NavigationBar from './components/NavigationBar';
 import MenuList from './components/MenuList'
 import Login from './components/Login'
 import SignUp from './components/SignUp'
+import UpdateItem from './components/UpdateItem'
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path='/add-item' exact component={AddItem} />
           <Route path='/login' exact component={Login} />
           <Route path='/register' exact component={SignUp} />
+          <Route path='/update-form/:id' exact component={UpdateItem} />
         </Switch>
 
       </Router>

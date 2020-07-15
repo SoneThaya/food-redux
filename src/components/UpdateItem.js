@@ -14,7 +14,7 @@ const UpdateItem = (props) => {
 
   const { register, handleSubmit } = useForm()
 
-  const onSubmit = (updateItem) => {
+  const onSubmit = (updatedItem) => {
     console.log(updateItem, "New Item")
     dispatch(updateItem(updatedItem, props.item_id, history))
 
@@ -62,6 +62,13 @@ const UpdateItem = (props) => {
               name="itemImage"
               ref={register({ required: "required" })}
             />
+            <button
+							type="submit"
+							variant="contained"
+							color="primary"
+						>
+							Update Item
+						</button>
             
             
           </form>
