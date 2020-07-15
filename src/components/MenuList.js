@@ -114,7 +114,7 @@ function MenuList(props) {
                     <div className="recipe-card-buttons">
                     <Link
                       style={{ textDecoration: "none" }}
-                      to={`/menu/${item.id}`}
+                      to={`/update-form/${item.id}`}
                     >
                       <Button
                         variant="contained"

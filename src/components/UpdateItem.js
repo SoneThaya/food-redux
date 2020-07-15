@@ -15,7 +15,7 @@ const UpdateItem = (props) => {
   const { register, handleSubmit } = useForm()
 
   const onSubmit = (updatedItem) => {
-    console.log(updateItem, "New Item")
+    console.log(updatedItem, "New Item")
     dispatch(updateItem(updatedItem, props.item_id, history))
 
     props.history.push('/menu')
